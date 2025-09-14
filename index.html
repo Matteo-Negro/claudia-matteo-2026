@@ -3,37 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work in Progress</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .message {
-      text-align: center;
-      padding: 20px;
-      background: #fff3cd;
-      border: 2px solid #ffeeba;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #856404;
-    }
-    p {
-      color: #6c757d;
-    }
-  </style>
+  <title>Claudia & Matteo - Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="message">
-    <h1>🚧 Work in Progress 🚧</h1>
-    <p>This page is currently under construction. Please check back later!</p>
+
+<header>
+  <h1>Claudia & Matteo</h1>
+  <p class="hearts lang en">♥ You're invited to our wedding ♥</p>
+  <p class="hearts lang it">♥ Siete invitati al nostro matrimonio ♥</p>
+
+  <!-- Language switch -->
+  <div class="lang-switch">
+    <button onclick="setLang('en')">🇬🇧 English</button>
+    <button onclick="setLang('it')">🇮🇹 Italiano</button>
   </div>
+</header>
+
+<section class="section">
+  <div class="info-card">
+    <h2 class="lang en">Event Date</h2>
+    <h2 class="lang it">Data</h2>
+    <p class="lang en"><strong>Monday, June 1st</strong> at 3:30 PM</p>
+    <p class="lang it"><strong>Lunedì 1 Giugno</strong> alle ore 15:30</p>
+  </div>
+  
+  <div class="info-card">
+    <h2 class="lang en">Ceremony</h2>
+    <h2 class="lang it">Cerimonia</h2>
+    <p class="lang en"><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
+    <p class="lang it"><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
+    <a class="button" href="https://maps.google.com/?q=Via+Alessandro+Manzoni+25,+San+Giorgio+su+Legnano" target="_blank">📍 Google Maps</a>
+  </div>
+
+  <div class="info-card">
+    <h2 class="lang en">Reception</h2>
+    <h2 class="lang it">Ricevimento</h2>
+    <p class="lang en"><strong>Castello di Vespolate</strong><br>Largo Giacomo Matteotti, 22</p>
+    <p class="lang it"><strong>Castello di Vespolate</strong><br>Largo Giacomo Matteotti, 22</p>
+    <a class="button" href="https://maps.google.com/?q=Largo+Giacomo+Matteotti+22,+Vespolate" target="_blank">📍 Google Maps</a>
+  </div>
+
+  <div class="iban">
+    <p class="lang en">💌 Wedding Gift IBAN:<br><code>IT00X0000000000000000000000</code></p>
+    <p class="lang it">💌 IBAN Lista Nozze:<br><code>IT00X0000000000000000000000</code></p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="lang en">Our Journey</h2>
+  <h2 class="lang it">La Nostra Storia</h2>
+  <div class="gallery">
+    <img src="assets/img-01.jpeg" alt="Photo 1">
+    <img src="assets/img-02.jpeg" alt="Photo 2">
+    <img src="assets/img-03.jpeg" alt="Photo 3">
+  </div>
+</section>
+
+<footer>
+  <p class="lang en">With love, Claudia & Matteo ❤️</p>
+  <p class="lang it">Con affetto, Claudia & Matteo ❤️</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  });
+}
+// default: English
+setLang('en');
+</script>
+
 </body>
 </html>
