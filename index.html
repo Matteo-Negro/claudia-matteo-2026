@@ -16,7 +16,6 @@
   <p class="hearts lang en">♥ You're invited to our wedding ♥</p>
   <p class="hearts lang it">♥ Siete invitati al nostro matrimonio ♥</p>
 
-  <!-- Language switch -->
   <div class="lang-switch">
     <button onclick="setLang('en')">🇬🇧 English</button>
     <button onclick="setLang('it')">🇮🇹 Italiano</button>
@@ -47,7 +46,7 @@
     <a class="button" href="https://maps.google.com/?q=Largo+Giacomo+Matteotti+22,+Vespolate" target="_blank">📍 Google Maps</a>
   </div>
 
-  <div class="iban">
+  <div class="info-card">
     <p class="lang en">💌 Wedding Gift IBAN:<br><code>IT00X0000000000000000000000</code></p>
     <p class="lang it">💌 IBAN Lista Nozze:<br><code>IT00X0000000000000000000000</code></p>
   </div>
@@ -56,10 +55,15 @@
 <section class="section">
   <h2 class="lang en">Our Journey</h2>
   <h2 class="lang it">La Nostra Storia</h2>
-  <div class="gallery">
-    <img src="assets/img-01.jpeg" alt="Photo 1">
-    <img src="assets/img-02.jpeg" alt="Photo 2">
-    <img src="assets/img-03.jpeg" alt="Photo 3">
+  
+  <div class="slider">
+    <div class="slides">
+      <img src="assets/img-01.jpeg" alt="Photo 1">
+      <img src="assets/img-02.jpeg" alt="Photo 2">
+      <img src="assets/img-03.jpeg" alt="Photo 3">
+    </div>
+    <button class="prev">‹</button>
+    <button class="next">›</button>
   </div>
 </section>
 
@@ -69,13 +73,81 @@
 </footer>
 
 <script>
-function setLang(lang) {
-  document.querySelectorAll('.lang').forEach(el => {
-    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  // Language switch
+  function setLang(lang) {
+    document.querySelectorAll('.lang').forEach(el => {
+      el.style.display = el.classList.contains(lang) ? '' : 'none';
+    });
+  }
+  setLang('en');
+
+  // Slider Infinite Loop
+  const slidesContainer = document.querySelector('.slides');
+  let slides = document.querySelectorAll('.slides img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+
+  // Clone first slide for seamless infinite loop
+  const firstClone = slides[0].cloneNode(true);
+  slidesContainer.appendChild(firstClone);
+  slides = document.querySelectorAll('.slides img');
+
+  let currentIndex = 0;
+  let isTransitioning = false;
+
+  function updateSlide(animate = true) {
+    if (!animate) slidesContainer.style.transition = 'none';
+    else slidesContainer.style.transition = 'transform 0.5s ease-in-out';
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex++;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    if (currentIndex === 0) {
+      currentIndex = slides.length - 1;
+      updateSlide(false);
+      requestAnimationFrame(() => {
+        currentIndex--;
+        updateSlide();
+      });
+    } else {
+      currentIndex--;
+      updateSlide();
+    }
+  }
+
+  slidesContainer.addEventListener('transitionend', () => {
+    if (currentIndex === slides.length - 1) {
+      slidesContainer.style.transition = 'none';
+      currentIndex = 0;
+      updateSlide(false);
+    }
+    isTransitioning = false;
   });
-}
-// default: English
-setLang('en');
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  let slideInterval = setInterval(nextSlide, 4000);
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 4000);
+  }
 </script>
 
 </body>
