@@ -6,147 +6,169 @@
   <title>Claudia & Matteo - Wedding</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Claudia & Matteo</h1>
-  <p class="hearts lang en">♥ You're invited to our wedding ♥</p>
-  <p class="hearts lang it">♥ Siete invitati al nostro matrimonio ♥</p>
+<div class="top-lang-switch text-center py-1">
+    <div class="lang-switch btn-group">
+        <button type="button" class="btn btn-lang" onclick="setLang('en')"><img src="https://flagcdn.com/us.svg" alt="English" width="40"></button>
+        <button type="button" class="btn btn-lang" onclick="setLang('it')"><img src="https://flagcdn.com/it.svg" alt="Italiano" width="40"></button>
+    </div>
+</div>
 
-  <div class="lang-switch">
-    <button onclick="setLang('en')">🇬🇧 English</button>
-    <button onclick="setLang('it')">🇮🇹 Italiano</button>
+<header class="text-center py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="assets/img-01.jpeg" alt="Claudia and Matteo" class="img-fluid rounded-circle mb-4 mb-md-0">
+      </div>
+      <div class="col-md-6">
+        <h1 class="display-1">Claudia & Matteo</h1>
+        <p class="hearts lang en lead">♥ You're invited to our wedding ♥</p>
+        <p class="hearts lang it lead">♥ Siete invitati al nostro matrimonio ♥</p>
+        <p class="wedding-date lang en"><strong>Monday, June 1st, 2026</strong></p>
+        <p class="wedding-date lang it"><strong>Lunedì 1 Giugno 2026</strong></p>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="section">
-  <div class="info-card">
-    <h2 class="lang en">Event Date</h2>
-    <h2 class="lang it">Data</h2>
-    <p class="lang en"><strong>Monday, June 1st</strong> at 3:30 PM</p>
-    <p class="lang it"><strong>Lunedì 1 Giugno</strong> alle ore 15:30</p>
-  </div>
-  
-  <div class="info-card">
-    <h2 class="lang en">Ceremony</h2>
-    <h2 class="lang it">Cerimonia</h2>
-    <p class="lang en"><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
-    <p class="lang it"><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
-    <a class="button" href="https://maps.google.com/?q=Via+Alessandro+Manzoni+25,+San+Giorgio+su+Legnano" target="_blank">📍 Google Maps</a>
-  </div>
-
-  <div class="info-card">
-    <h2 class="lang en">Reception</h2>
-    <h2 class="lang it">Ricevimento</h2>
-    <p class="lang en"><strong>Castello di Vespolate</strong><br>Largo Giacomo Matteotti, 22</p>
-    <p class="lang it"><strong>Castello di Vespolate</strong><br>Largo Giacomo Matteotti, 22</p>
-    <a class="button" href="https://maps.google.com/?q=Largo+Giacomo+Matteotti+22,+Vespolate" target="_blank">📍 Google Maps</a>
-  </div>
-
-  <div class="info-card">
-    <p class="lang en">💌 Wedding Gift IBAN:<br><code>IT00X0000000000000000000000</code></p>
-    <p class="lang it">💌 IBAN Lista Nozze:<br><code>IT00X0000000000000000000000</code></p>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="lang en">Our Journey</h2>
-  <h2 class="lang it">La Nostra Storia</h2>
-  
-  <div class="slider">
-    <div class="slides">
-      <img src="assets/img-01.jpeg" alt="Photo 1">
-      <img src="assets/img-02.jpeg" alt="Photo 2">
-      <img src="assets/img-03.jpeg" alt="Photo 3">
+<section class="section countdown-section">
+    <div id="countdown-container" class="countdown-container">
+        <h3 class="lang en countdown-title">Counting down the days until we say "I do"!</h3>
+        <h3 class="lang it countdown-title">Conto alla rovescia per il nostro "Sì"!</h3>
+        <div  class="countdown xl" id="countdown"></div>
     </div>
-    <button class="prev">‹</button>
-    <button class="next">›</button>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="lang en text-center mb-5">Schedule of Events</h2>
+    <h2 class="lang it text-center mb-5">Programma della Giornata</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="bi bi-gem"></i>
+        </div>
+        <div class="timeline-content">
+          <h3 class="lang en">Ceremony</h3>
+          <h3 class="lang it">Cerimonia</h3>
+          <p class="lang en">3:30 PM</p>
+          <p class="lang it">Ore 15:30</p>
+          <p><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
+          <a class="btn btn-custom-map mt-2" href="https://maps.google.com/?q=Via+Alessandro+Manzoni+25,+San+Giorgio+su+Legnano" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="bi bi-cup-straw"></i>
+        </div>
+        <div class="timeline-content">
+          <h3 class="lang en">Reception</h3>
+          <h3 class="lang it">Ricevimento</h3>
+          <p class="lang en">Following the ceremony</p>
+          <p class="lang it">A seguire</p>
+          <p><strong>Castello di Vespolate</strong><br>Largo Giacomo Matteotti, 22</p>
+          <a class="btn btn-custom-map mt-2" href="https://maps.google.com/?q=Largo+Giacomo+Matteotti+22,+Vespolate" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p class="lang en">With love, Claudia & Matteo ❤️</p>
-  <p class="lang it">Con affetto, Claudia & Matteo ❤️</p>
+<section class="section text-center">
+    <h2 class="lang en">Wedding Gift</h2>
+    <h2 class="lang it">Lista Nozze</h2>
+    <p class="pt-3">
+        <button class="btn btn-gift" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIban" aria-expanded="false" aria-controls="collapseIban">
+            <span class="lang en">🎁 Gift Idea</span>
+            <span class="lang it">🎁 Idea Regalo</span>
+        </button>
+    </p>
+    <div class="collapse" id="collapseIban">
+        <div class="card card-body info-card">
+            <p class="lang en">Your presence at our wedding is the greatest gift of all. However, if you wish to give a gift, a contribution to our future together would be most appreciated, as we are starting our lives overseas. Thank you!</p>
+            <p class="lang it">La vostra presenza al nostro matrimonio è il dono più grande. Se però desiderate farci un regalo, un contributo per il nostro futuro insieme sarebbe molto apprezzato, dato che stiamo iniziando la nostra vita all'estero. Grazie!</p>
+            <code>IT00X0000000000000000000000</code>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+  <h2 class="lang en text-center">Our Journey</h2>
+  <h2 class="lang it text-center">La Nostra Storia</h2>
+  
+  <div id="journey-gallery" class="mt-4">
+    <div class="main-image-container mb-3">
+      <img src="assets/img-01.jpeg" alt="Our Journey Photo 1" class="img-fluid rounded" id="main-gallery-image">
+    </div>
+    <div class="thumbnail-container">
+      <img src="assets/img-01.jpeg" alt="Thumbnail 1" class="img-thumbnail" onclick="changeImage('assets/img-01.jpeg')">
+      <img src="assets/img-02.jpeg" alt="Thumbnail 2" class="img-thumbnail" onclick="changeImage('assets/img-02.jpeg')">
+      <img src="assets/img-03.jpeg" alt="Thumbnail 3" class="img-thumbnail" onclick="changeImage('assets/img-03.jpeg')">
+    </div>
+  </div>
+</section>
+
+<footer class="wedding-footer">
+  <p class="lang en mb-0">With love, Claudia & Matteo ❤️</p>
+  <p class="lang it mb-0">Con affetto, Claudia & Matteo ❤️</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
   // Language switch
   function setLang(lang) {
     document.querySelectorAll('.lang').forEach(el => {
       el.style.display = el.classList.contains(lang) ? '' : 'none';
     });
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`).classList.add('active');
   }
   setLang('en');
 
-  // Slider Infinite Loop
-  const slidesContainer = document.querySelector('.slides');
-  let slides = document.querySelectorAll('.slides img');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
+  // Countdown Timer
+  const countdownDate = new Date("June 1, 2026 15:30:00").getTime();
+  const countdown = document.getElementById("countdown");
 
-  // Clone first slide for seamless infinite loop
-  const firstClone = slides[0].cloneNode(true);
-  slidesContainer.appendChild(firstClone);
-  slides = document.querySelectorAll('.slides img');
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-  let currentIndex = 0;
-  let isTransitioning = false;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  function updateSlide(animate = true) {
-    if (!animate) slidesContainer.style.transition = 'none';
-    else slidesContainer.style.transition = 'transform 0.5s ease-in-out';
-    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+    const countdownTextEn = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    const countdownTextIt = `${days}g ${hours}o ${minutes}m ${seconds}s`;
 
-  function nextSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    currentIndex++;
-    updateSlide();
-  }
+    countdown.innerHTML = `
+        <div class="countdown-timer">
+            <div class="lang en">${countdownTextEn}</div>
+            <div class="lang it">${countdownTextIt}</div>
+        </div>
+    `;
 
-  function prevSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    if (currentIndex === 0) {
-      currentIndex = slides.length - 1;
-      updateSlide(false);
-      requestAnimationFrame(() => {
-        currentIndex--;
-        updateSlide();
-      });
-    } else {
-      currentIndex--;
-      updateSlide();
+    if (distance < 0) {
+      clearInterval(x);
+      countdown.innerHTML = "EXPIRED";
     }
-  }
+    
+    const currentLang = document.querySelector('.lang-switch .active img').alt === 'English' ? 'en' : 'it';
+    document.querySelectorAll('#countdown-container .lang').forEach(el => {
+        el.style.display = el.classList.contains(currentLang) ? '' : 'none';
+    });
+  }, 1000);
 
-  slidesContainer.addEventListener('transitionend', () => {
-    if (currentIndex === slides.length - 1) {
-      slidesContainer.style.transition = 'none';
-      currentIndex = 0;
-      updateSlide(false);
-    }
-    isTransitioning = false;
-  });
-
-  nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetInterval();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetInterval();
-  });
-
-  let slideInterval = setInterval(nextSlide, 4000);
-  function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 4000);
+  function changeImage(src) {
+    document.getElementById('main-gallery-image').src = src;
   }
 </script>
 
