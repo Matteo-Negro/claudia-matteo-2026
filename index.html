@@ -16,18 +16,10 @@
 <div class="top-lang-switch text-center py-1">
     <div class="lang-switch btn-group">
         <button type="button" class="btn btn-lang" onclick="setLang('en')">
-          <img
-            src="https://flagcdn.com/40x30/us.png"
-            width="40"
-            height="30"
-            alt="United States">
+          <h1>🇺🇸</h1>
         </button>
         <button type="button" class="btn btn-lang" onclick="setLang('it')">
-          <img
-            src="https://flagcdn.com/40x30/it.png"
-            width="40"
-            height="30"
-            alt="Italy">
+          <h1>🇮🇹</h1>
       </button>
     </div>
 </div>
@@ -36,12 +28,12 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6">
-        <img src="assets/img-01.jpeg" alt="Claudia and Matteo" class="img-fluid rounded-circle mb-4 mb-md-0">
+        <img src="assets/img-01.JPG" alt="Claudia and Matteo" class="img-fluid rounded-circle mb-4 mb-md-0">
       </div>
       <div class="col-md-6">
         <h1 class="display-1">Claudia & Matteo</h1>
-        <p class="hearts lang en lead">♥ You're invited to our wedding ♥</p>
-        <p class="hearts lang it lead">♥ Siete invitati al nostro matrimonio ♥</p>
+        <p class="hearts lang en lead">You're invited to our wedding</p>
+        <p class="hearts lang it lead">Siete invitati al nostro matrimonio</p>
         <p class="wedding-date lang en"><strong>Monday, June 1st, 2026</strong></p>
         <p class="wedding-date lang it"><strong>Lunedì 1 Giugno 2026</strong></p>
         <p class="rsvp-message lang en">Please let us know if you are coming as soon as possible!</p>
@@ -97,6 +89,25 @@
 </section>
 
 <section class="section text-center">
+  <h2 class="lang en">Wedding Album</h2>
+  <h2 class="lang it">Album di Nozze</h2>
+  <p class="pt-3">
+      <button class="btn btn-gift" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="false" aria-controls="collapsePhoto">
+          <span class="lang en">📷 Photo</span>
+          <span class="lang it">📷 Photo</span>
+      </button>
+  </p>
+  <div class="collapse" id="collapsePhoto">
+      <div class="card card-body info-card">
+          <p class="lang en">We would be thrilled to see the day through your eyes. Upload your photos on <a href=" https://www.wedshoots.com/uk?albumId=IT62315686" class="custom-link"><b>WedShoots</b></a> and help us preserve all the special memories of our wedding!</p>
+          <p class="lang it">Saremmo felicissimi di vedere la giornata attraverso i tuoi occhi. Carica qui le tue foto su <a href=" https://www.wedshoots.com/uk?albumId=IT62315686" class="custom-link"><b>WedShoots</b></a> e aiutaci a conservare tutti i ricordi speciali del nostro matrimonio!</p>
+          <code class="lang en"><a href=" https://www.wedshoots.com/uk?albumId=IT62315686" class="custom-link">IT623156860</a></code>
+          <code class="lang it"><a href=" https://www.wedshoots.com/it?albumId=IT62315686" class="custom-link">IT623156860</a></code>
+      </div>
+  </div>
+</section>
+
+<section class="section text-center">
     <h2 class="lang en">Wedding Gift</h2>
     <h2 class="lang it">Lista Nozze</h2>
     <p class="pt-3">
@@ -109,7 +120,23 @@
         <div class="card card-body info-card">
             <p class="lang en">Your presence at our wedding is the greatest gift of all. However, if you wish to give a gift, a contribution to our future together would be most appreciated, as we are starting our lives overseas. Thank you!</p>
             <p class="lang it">La vostra presenza al nostro matrimonio è il dono più grande. Se però desiderate farci un regalo, un contributo per il nostro futuro insieme sarebbe molto apprezzato, dato che stiamo iniziando la nostra vita all'estero. Grazie!</p>
-            <code>IT00X0000000000000000000000</code>
+            <code class="lang it">
+              <div>
+                IBAN: IT24P0338501601100080706880 </br>
+                Intestatario: Claudia Comerio </br>
+                Banca: ISYBANK S.P.A. </br>
+                BIC/SWIFT: ISYBITMMXXX
+              </div>
+            </code>
+            <code class="lang en">
+              <div>
+                IBAN: LT893250077897117518 </br>
+                Intestatario: Claudia Comerio </br>
+                Banca: Revolut Bank UAB </br>
+                BIC/SWIFT: REVOLT21
+              </div>
+            </code>
+
         </div>
     </div>
 </section>
@@ -120,12 +147,12 @@
   
   <div id="journey-gallery" class="mt-4">
     <div class="main-image-container mb-3">
-      <img src="assets/img-01.jpeg" alt="Our Journey Photo 1" class="img-fluid rounded" id="main-gallery-image">
+      <img src="assets/img-01.JPG" alt="Our Journey Photo 1" class="img-fluid rounded" id="main-gallery-image">
     </div>
     <div class="thumbnail-container">
-      <img src="assets/img-01.jpeg" alt="Thumbnail 1" class="img-thumbnail" onclick="changeImage('assets/img-01.jpeg')">
-      <img src="assets/img-02.jpeg" alt="Thumbnail 2" class="img-thumbnail" onclick="changeImage('assets/img-02.jpeg')">
-      <img src="assets/img-03.jpeg" alt="Thumbnail 3" class="img-thumbnail" onclick="changeImage('assets/img-03.jpeg')">
+      <img src="assets/img-01.JPG" alt="Thumbnail 1" class="img-thumbnail" onclick="changeImage('assets/img-01.JPG')">
+      <img src="assets/img-02.JPG" alt="Thumbnail 2" class="img-thumbnail" onclick="changeImage('assets/img-02.JPG')">
+      <img src="assets/img-03.JPG" alt="Thumbnail 3" class="img-thumbnail" onclick="changeImage('assets/img-03.JPG')">
     </div>
   </div>
 </section>
@@ -177,8 +204,7 @@
       countdown.innerHTML = "EXPIRED";
     }
     
-    const currentLang = document.querySelector('.lang-switch .active img').alt === 'English' ? 'en' : 'it';
-    document.querySelectorAll('#countdown-container .lang').forEach(el => {
+    const currentLang = document.querySelector('.lang-switch .active[onclick*="en"]') ? 'en' : 'it';    document.querySelectorAll('#countdown-container .lang').forEach(el => {
         el.style.display = el.classList.contains(currentLang) ? '' : 'none';
     });
   }, 1000);
@@ -189,9 +215,10 @@
 
   // Gallery Autoplay
   const galleryImages = [
-    'assets/img-01.jpeg',
-    'assets/img-02.jpeg', 
-    'assets/img-03.jpeg'
+    'assets/img-01.JPG',
+    'assets/img-02.JPG', 
+    'assets/img-03.JPG',
+    'assets/img-04.JPG'
   ];
   let currentImageIndex = 0;
   let galleryInterval;
@@ -202,7 +229,7 @@
   }
 
   function startGalleryAutoplay() {
-    galleryInterval = setInterval(nextImage, 2000); // Change image every 2 seconds
+    galleryInterval = setInterval(nextImage, 3500); // Change image every 2 seconds
   }
 
   function stopGalleryAutoplay() {

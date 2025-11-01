@@ -6,6 +6,9 @@ body {
     color: #333;
     text-align: center;
 }
+.custom-link {
+    color: #a06b77;
+}
 
 .top-lang-switch {
     background-color: #e5d0d5;
@@ -224,9 +227,13 @@ a.button:hover {
 
 /* Timeline */
 .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     padding: 2rem 0;
 }
+
 .timeline::before {
     content: '';
     position: absolute;
@@ -235,34 +242,39 @@ a.button:hover {
     left: 50%;
     width: 2px;
     background-color: #a06b77;
-    margin-left: -1px;
+    transform: translateX(-50%);
 }
+
 .timeline-item {
-    padding: 1rem 2rem;
     position: relative;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2rem;
 }
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-right: 4rem;
-    text-align: right;
-}
-.timeline-item:nth-child(even) {
-    left: 50%;
-    padding-left: 4rem;
-    text-align: left;
-}
+
 .timeline-content {
     background: rgba(255, 255, 255, 0.95);
     padding: 1.5rem;
     border-radius: 1rem;
-    min-width: 260px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    width: 45%;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+}
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+}
+
 .timeline-icon {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -273,44 +285,6 @@ a.button:hover {
     align-items: center;
     font-size: 1.5rem;
     z-index: 1;
-}
-.timeline-item:nth-child(odd) .timeline-icon {
-    right: 2rem;
-}
-.timeline-item:nth-child(even) .timeline-icon {
-    left: 2rem;
-}
-
-/* Responsive Timeline for Mobile */
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
-        margin-left: 0;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 15px;
-        margin-bottom: 2rem;
-    }
-
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0;
-        text-align: left;
-        padding-left: 65px;
-    }
-
-    .timeline-icon {
-        left: 0;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-icon,
-    .timeline-item:nth-child(even) .timeline-icon {
-        left: 10px;
-        right: auto;
-    }
 }
 
 /* Journey Gallery */
@@ -393,3 +367,57 @@ a.button:hover {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
+
+/* --- FIX: Unified mobile/tablet timeline layout --- */
+@media (max-width: 992px) {
+    .timeline::before {
+      left: 19px;
+      transform: none;
+    }
+  
+    /* Reset layout for ALL timeline items */
+    .timeline-item {
+      position: relative !important;
+      width: 100% !important;
+      left: 0 !important;
+      right: auto !important;
+      padding: 0 1rem 2rem 70px !important;
+      margin-bottom: 2rem !important;
+      text-align: left !important;
+    }
+  
+    /* Explicitly override both odd and even variants */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+      position: relative !important;
+      left: 0 !important;
+      right: auto !important;
+      padding-left: 70px !important;
+      padding-right: 1rem !important;
+      text-align: left !important;
+    }
+  
+    /* Timeline icons */
+    .timeline-item .timeline-icon {
+      position: absolute;
+      left: 0;
+      top: 35%;
+      transform: none;
+    }
+  
+    /* Cards have uniform width & centered content */
+    .timeline-content {
+      width: 90% !important;
+      max-width: 480px !important;
+      margin: 0 !important;
+      text-align: center;
+    }
+  
+    /* Center Google Maps buttons */
+    .timeline-content .btn-custom-map {
+      display: inline-block;
+      margin: 1rem auto 0 auto;
+    }
+  }
+  
+  
