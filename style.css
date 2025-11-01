@@ -55,6 +55,33 @@ header h1 {
     color: #7a4c58;
     margin-top: 1rem;
 }
+
+.rsvp-message {
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    color: #a06b77;
+    margin-top: 1rem;
+    font-style: italic;
+    animation: pulse 2s ease-in-out infinite;
+}
+.rsvp-message-2 {
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    color: #a06b77;
+    font-style: italic;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
   
 /* language switch buttons */
 .lang-switch {
@@ -80,7 +107,7 @@ header h1 {
 /* main section */
 .section {
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }

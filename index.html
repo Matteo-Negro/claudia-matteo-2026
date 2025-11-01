@@ -15,8 +15,20 @@
 
 <div class="top-lang-switch text-center py-1">
     <div class="lang-switch btn-group">
-        <button type="button" class="btn btn-lang" onclick="setLang('en')"><img src="https://flagcdn.com/us.svg" alt="English" width="40"></button>
-        <button type="button" class="btn btn-lang" onclick="setLang('it')"><img src="https://flagcdn.com/it.svg" alt="Italiano" width="40"></button>
+        <button type="button" class="btn btn-lang" onclick="setLang('en')">
+          <img
+            src="https://flagcdn.com/40x30/us.png"
+            width="40"
+            height="30"
+            alt="United States">
+        </button>
+        <button type="button" class="btn btn-lang" onclick="setLang('it')">
+          <img
+            src="https://flagcdn.com/40x30/it.png"
+            width="40"
+            height="30"
+            alt="Italy">
+      </button>
     </div>
 </div>
 
@@ -32,6 +44,10 @@
         <p class="hearts lang it lead">♥ Siete invitati al nostro matrimonio ♥</p>
         <p class="wedding-date lang en"><strong>Monday, June 1st, 2026</strong></p>
         <p class="wedding-date lang it"><strong>Lunedì 1 Giugno 2026</strong></p>
+        <p class="rsvp-message lang en">Please let us know if you are coming as soon as possible!</p>
+        <p class="rsvp-message lang it">Vi preghiamo di farci sapere se parteciperete il prima possibile!</p>
+        <p class="rsvp-message-2 lang en">Final confirmation by March 2026</p>
+        <p class="rsvp-message-2 lang it">Conferma definitiva entro Marzo 2026</p>
       </div>
     </div>
   </div>
@@ -59,7 +75,7 @@
           <h3 class="lang it">Cerimonia</h3>
           <p class="lang en">3:30 PM</p>
           <p class="lang it">Ore 15:30</p>
-          <p><strong>San Giorgio su Legnano</strong><br>Via Alessandro Manzoni, 25</p>
+          <p><strong>Parrocchia Beata Vergine Assunta</strong><br>San Giorgio su Legnano<br>Via Alessandro Manzoni, 25</p>
           <a class="btn btn-custom-map mt-2" href="https://maps.google.com/?q=Via+Alessandro+Manzoni+25,+San+Giorgio+su+Legnano" target="_blank">📍 Google Maps</a>
         </div>
       </div>
@@ -169,6 +185,43 @@
 
   function changeImage(src) {
     document.getElementById('main-gallery-image').src = src;
+  }
+
+  // Gallery Autoplay
+  const galleryImages = [
+    'assets/img-01.jpeg',
+    'assets/img-02.jpeg', 
+    'assets/img-03.jpeg'
+  ];
+  let currentImageIndex = 0;
+  let galleryInterval;
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    changeImage(galleryImages[currentImageIndex]);
+  }
+
+  function startGalleryAutoplay() {
+    galleryInterval = setInterval(nextImage, 2000); // Change image every 2 seconds
+  }
+
+  function stopGalleryAutoplay() {
+    clearInterval(galleryInterval);
+  }
+
+  // Start autoplay when page loads
+  startGalleryAutoplay();
+
+  // Pause autoplay on hover
+  const galleryContainer = document.getElementById('journey-gallery');
+  galleryContainer.addEventListener('mouseenter', stopGalleryAutoplay);
+  galleryContainer.addEventListener('mouseleave', startGalleryAutoplay);
+
+  // Update manual image selection to sync with autoplay
+  function changeImage(src) {
+    document.getElementById('main-gallery-image').src = src;
+    // Update current index when manually selecting image
+    currentImageIndex = galleryImages.indexOf(src);
   }
 </script>
 
